@@ -1,0 +1,1375 @@
+@use './components' as *;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: #fff;
+	font-family: 'Raleway', sans-serif;
+}
+
+//PODSTRONA MAIN ITEMS ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.subpage-main-picture {
+	position: relative;
+	width: 100%;
+	height: 20vh;
+	background-position: 50% 70%;
+	background-size: cover;
+
+	.main-bg {
+		position: relative;
+		width: 70%;
+		height: 100%;
+		background: rgb(223, 197, 163);
+		background: linear-gradient(
+			98deg,
+			rgba(223, 197, 163, 1) 0%,
+			rgba(228, 170, 111, 1) 53%,
+			rgba(223, 148, 93, 1) 61%,
+			rgba(250, 211, 183, 0) 100%
+		);
+		opacity: 0.9;
+	}
+
+	.main-text {
+		position: absolute;
+		left: 10%;
+		top: 50%;
+		transform: translate(-10%, -50%);
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 5px;
+
+		h2 {
+			font-size: 18px;
+		}
+	}
+}
+//----------------------------------------------------------------------------------
+
+.subpage-main-info {
+	margin: 1.5em;
+	margin-top: 2em;
+	.info-picture {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.info-text {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+
+		p {
+			margin-top: 1.5em;
+			font-size: 14px;
+		}
+	}
+
+	.btn-gallery-media {
+		display: none;
+	}
+
+	.btn-gallery {
+		position: relative;
+		width: 40%;
+		left: 50%;
+		transform: translate(-50%);
+		padding: 1em;
+		margin-bottom: 2em;
+		margin-top: 1em;
+		background-color: orange;
+		border-radius: 25px;
+		border: none;
+		font-size: 11px;
+		font-weight: bold;
+		text-transform: uppercase;
+		transition: background-color 0.3s;
+	}
+
+	.btn-gallery:hover {
+		background-color: yellow;
+	}
+}
+//----------------------------------------------------------------------------------
+
+.subpage-gallery {
+	.subpage-gallery-img {
+		margin: 2em;
+		overflow: hidden;
+		transition: transform 0.3s;
+	}
+
+	img {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition-duration: 0.5s;
+		border-radius: 25px;
+
+		padding: 1em;
+		cursor: zoom-in;
+	}
+
+	img:hover {
+		transform: scale(1.05);
+	}
+}
+
+.popup-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.9);
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	display: none;
+
+	span {
+		position: absolute;
+		top: 0;
+		right: 10px;
+		color: #fff;
+		font-size: 60px;
+		cursor: pointer;
+	}
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border: 5px solid #fff;
+		border-radius: 25px;
+		width: 90%;
+		object-fit: cover;
+	}
+}
+
+//NAVIGATION ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+nav {
+	position: sticky;
+	top: 0;
+	background-color: white;
+	z-index: 10;
+}
+
+.navbar-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5em;
+	font-size: 12px;
+	text-transform: uppercase;
+
+	.nav-link {
+		padding: 1em;
+		margin: 0.5em;
+		color: black;
+		transition: color 0.3s;
+	}
+
+	.nav-link:hover {
+		color: orange;
+	}
+}
+.navbar-toggler {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1em;
+	color: black;
+	font-size: 17px;
+	border: none;
+}
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 40%;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+//HEADER +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.header {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-image: url('../img/agro-small.jpg');
+	background-position: 25%;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	// background-color: #fff;
+}
+
+.header-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 0;
+}
+
+.header-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.header-text-h1 {
+	margin: 0.5em;
+	font-size: 18px;
+}
+.header-text-p {
+	font-size: 13px;
+	color: rgb(255, 255, 255);
+}
+
+//MAIN ABOUTUS +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.aboutus {
+	margin: 1em;
+	text-align: center;
+}
+
+.aboutus-text {
+	&-h3 {
+		display: flex;
+		flex-direction: column;
+		margin: 1em;
+		font-size: 20px;
+		text-transform: uppercase;
+		color: orange;
+	}
+
+	span {
+		color: black;
+		margin: 0.5em;
+		font-size: 14px;
+		font-weight: bold;
+		text-transform: none;
+	}
+
+	p {
+		font-size: 12px;
+		margin: 2em 1em;
+	}
+}
+
+.aboutus-picture {
+	position: relative;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.aboutus-picture::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('../img/splash.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	mix-blend-mode: screen;
+}
+
+//SECTION HERO-BG +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.hero-bg {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	background-image: url('../img/1627321013488.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.hero-bg-shadow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 0;
+}
+
+.hero-text {
+	position: relative;
+	width: 70%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1em;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.1);
+	border: 2px solid white;
+	font-size: 12px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+
+	p {
+		margin: 0.5em;
+	}
+}
+
+//SECTION OFFERS +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.offers {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/1627321013476_76353488585743.jpg');
+	background-size: cover;
+	background-position: center;
+
+	.section-text {
+		margin: 1em;
+		font-size: 17px;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.section-heading {
+		padding-top: 2em;
+		margin: 1em;
+		font-size: 1.4rem;
+	}
+
+	.offer-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.9);
+		z-index: 0;
+	}
+
+	.offer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.offers-box {
+			position: relative;
+			text-align: center;
+
+			.section-line {
+				width: 20%;
+				margin: 1em auto;
+			}
+
+			img {
+				position: relative;
+				width: 50%;
+				height: 100%;
+				border-radius: 20%;
+				margin: 1.5em 0;
+				transition: transform 0.5s;
+			}
+
+			img:hover {
+				transform: scale(1.1);
+			}
+
+			p {
+				color: black;
+				font-size: 15px;
+				font-weight: bold;
+				text-transform: uppercase;
+				font-family: 'lato', sans-serif;
+			}
+		}
+	}
+}
+
+//SECTION ADDITION +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.addition {
+	.section-line {
+		width: 50%;
+		height: 1px;
+		margin: 1em auto;
+	}
+	.addition-main {
+		.addition-icon {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 1em;
+			margin-top: 3em;
+			margin-bottom: 5em;
+		}
+
+		.text-addition {
+			text-align: center;
+
+			h3 {
+				font-size: 12px;
+				text-transform: uppercase;
+			}
+
+			p {
+				font-size: 10px;
+			}
+		}
+	}
+}
+
+//SECTION REVIEWS +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.reviews {
+	.reviews-box {
+		margin: 3.5em;
+		z-index: 1000;
+		.reviews-box-star {
+			margin: 0.5em;
+			color: gold;
+			font-size: 15px;
+		}
+
+		.reviews-box-text {
+			text-align: center;
+
+			h3 {
+				font-weight: bold;
+			}
+			p {
+				font-size: 12px;
+			}
+		}
+	}
+
+	.reviews-btn {
+		display: flex;
+		justify-content: end;
+		align-items: end;
+		margin: 1em;
+
+		button {
+			padding: 1em;
+			background-color: white;
+			border: none;
+			font-size: 14px;
+			transition: color 0.5s;
+		}
+	}
+
+	button:hover {
+		color: orange;
+	}
+
+	.section-line {
+		width: 50%;
+		height: 1px;
+		margin-top: 0.5em;
+	}
+}
+
+//KONTAKT
+
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Lato', sans-serif;
+
+	.contact__text {
+		color: orange;
+		margin: 2em;
+		font-size: 15px;
+		text-align: center;
+
+		h1 {
+			margin-bottom: 1em;
+			font-size: 32px;
+		}
+
+		h2 {
+			margin-top: 1em;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		p {
+			color: black;
+			font-size: 18px;
+		}
+	}
+	.google__maps {
+		width: 100%;
+	}
+}
+
+//FOOTER
+
+.footer {
+	background-color: #f0f0f0;
+	overflow: hidden;
+	.footer__boxes {
+		display: flex;
+		padding: 4em;
+
+		.footer__box {
+			flex-direction: column;
+			width: 50%;
+			margin: 0 1em;
+			text-align: center;
+
+			&-h3 {
+				margin-bottom: 1em;
+				font-size: 14px;
+				font-weight: bold;
+			}
+
+			p {
+				font-size: 13px;
+			}
+			.text-three {
+				margin-bottom: 2em;
+			}
+		}
+
+		.footer__icon {
+			display: none;
+		}
+	}
+
+	.footer__bottom-text {
+		padding: 2em;
+		font-size: 10px;
+		text-align: center;
+		line-height: 0;
+	}
+}
+
+//PODSTRONA ROOMS ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.room {
+	background-image: url('/dist/img/pokoj-big.jpg');
+}
+
+.subpage-room-main {
+	margin: 1em;
+
+	.subpage-room {
+		margin-top: 2em;
+
+		.subpage-rooms-left {
+			margin-left: 5em;
+			order: 1;
+		}
+
+		.subpage-rooms {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-left: 1em;
+			margin-right: 1em;
+			padding: 0.5em;
+			background-color: #fff;
+			border: 1px solid black;
+			border-bottom: none;
+			border-top-right-radius: 25px;
+			border-top-left-radius: 25px;
+			text-align: center;
+
+			.subpage-rooms-text {
+				margin: 2em;
+
+				.section-line {
+					width: 25%;
+				}
+
+				h2 {
+					font-size: 20px;
+					margin: 1em;
+				}
+
+				.text-info-price {
+					font-size: 16px;
+					font-weight: bold;
+				}
+
+				.subpage-btn {
+					text-align: center;
+					.subpage-text-btn {
+						position: relative;
+						width: 30%;
+						padding: 0.7em;
+						margin-top: 2em;
+						background-color: orange;
+						color: black;
+						border-radius: 25px;
+						border: none;
+						text-transform: uppercase;
+						transition: background-color 0.5s;
+					}
+
+					.subpage-text-btn:hover {
+						background-color: rgb(255, 177, 33);
+					}
+				}
+			}
+		}
+
+		.subpage-equipment {
+			.subpage-equipment-text {
+				text-align: center;
+
+				h3 {
+					margin: 1.5em;
+					font-size: 15px;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+			}
+		}
+
+		.subpage-equipment-icon {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			text-align: center;
+			margin: 1em;
+
+			.equipment-icon {
+				img {
+					width: 22px;
+				}
+
+				p {
+					margin-top: 1em;
+				}
+				.subpage-equipment-icon-text {
+					margin: 0.5em;
+					font-size: 12px;
+				}
+			}
+		}
+
+		.subpage-rooms-carousel {
+			background-color: #fff;
+			margin-left: 1em;
+			margin-right: 1em;
+			border: 1px solid black;
+			border-top: none;
+			border-bottom-right-radius: 25px;
+			border-bottom-left-radius: 25px;
+
+			.carousel-indicators {
+				button {
+					height: 2px;
+				}
+			}
+		}
+	}
+}
+
+//PODSTRONA FARM ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.farm {
+	background-image: url('/dist/img/altanka-big.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+//PODSTRONA ATTRACTIONS ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.attractions {
+	background-image: url('/dist/img/altanka-big.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+//PODSTRONA GALERRY ++++++++++++++++++++++++++++++++++++++++++++++++
+
+//
+
+.gallery-boxes {
+	position: relative;
+	margin: 1em;
+}
+.gallery-box-main {
+	display: flex;
+	flex-direction: column;
+
+	.gallery-box {
+		position: relative;
+		margin: 1.5em;
+		transition: transform 0.3s;
+
+		.gallery-boxes-bg {
+			position: absolute;
+			width: 100%;
+			height: 25%;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
+		}
+
+		img {
+			width: 100%;
+			border-radius: 25px;
+		}
+	}
+
+	.gallery-box:hover {
+		transform: scale(1.05);
+	}
+
+	.gallery-box-text {
+		position: absolute;
+		top: 90%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 16px;
+		color: white;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		font-weight: bold;
+	}
+}
+
+//MEDIA MIN 576px ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@media (min-width: 576px) {
+	.navbar-nav {
+		font-size: 13px;
+	}
+	//----------------------------------------------------------------------------------
+
+	.aboutus-text {
+		p {
+			font-size: 16px;
+		}
+	}
+	//----------------------------------------------------------------------------------
+
+	.offers {
+		.offer {
+			.offers-box {
+				img {
+					width: 40%;
+				}
+			}
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+	.subpage-room-main {
+		margin: 4em;
+	}
+	//----------------------------------------------------------------------------------
+
+	.subpage-gallery {
+		.subpage-gallery-img {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.gallery-box-main {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+//MEDIA MIN 768px ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@media (min-width: 768px) {
+	.logo {
+		width: 30%;
+	}
+	//----------------------------------------------------------------------------------
+
+	.header-text-h1 {
+		font-size: 25px;
+	}
+	.header-text-p {
+		font-size: 17px;
+	}
+	//----------------------------------------------------------------------------------
+
+	.aboutus {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.aboutus-text {
+		flex-direction: column;
+		width: 70%;
+		margin: 1em;
+
+		p {
+			font-size: 13px;
+		}
+	}
+
+	.aboutus-picture {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			width: 100%;
+			height: 80%;
+			padding: 2em;
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+	.hero-text {
+		font-size: 15px;
+	}
+
+	//----------------------------------------------------------------------------------
+	.offers {
+		.section-text {
+			font-size: 18px;
+		}
+
+		.offer {
+			flex-direction: row;
+
+			.offers-box {
+				height: 100%;
+				margin: 2em;
+
+				.section-line {
+					width: 40%;
+				}
+
+				img {
+					width: 100%;
+				}
+				p {
+					margin: 0.5em;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+	.addition {
+		.addition-main {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+
+			.addition-icon {
+				margin: 3em;
+			}
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+	.reviews {
+		.reviews-box-main {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			text-align: center;
+
+			.reviews-box {
+				margin: 5em;
+				margin-bottom: 1.5em;
+
+				.reviews-box-text {
+					.reviews-box-star {
+						margin: 0.5em;
+						color: gold;
+						font-size: 15px;
+					}
+
+					h3 {
+						font-weight: bold;
+					}
+					p {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+		.reviews-btn {
+			justify-content: center;
+			align-items: center;
+
+			button {
+				font-size: 15px;
+			}
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+
+	.subpage-main-picture {
+		height: 30vh;
+
+		.main-text {
+			h2 {
+				font-size: 25px;
+			}
+		}
+	}
+
+	.subpage-room-main {
+		.subpage-room {
+			display: flex;
+
+			.subpage-rooms {
+				width: 60%;
+				border: 1px solid black;
+				border-radius: 25px;
+
+				.subpage-rooms-text {
+					h2 {
+						font-size: 23px;
+					}
+
+					.text-main {
+						font-size: 12px;
+					}
+
+					.text-info-price {
+						font-size: 18px;
+						margin-top: 2em;
+						font-weight: bold;
+					}
+
+					.subpage-btn {
+						.subpage-text-btn {
+							width: 50%;
+							font-size: 12px;
+							padding: 0.7em;
+						}
+					}
+				}
+			}
+
+			.subpage-equipment {
+				.subpage-equipment-text {
+					margin-top: 1em;
+
+					h3 {
+						margin: 1em;
+						font-size: 15px;
+					}
+				}
+			}
+
+			.subpage-equipment-icon {
+				.equipment-icon {
+					img {
+						margin-top: 0.5em;
+					}
+					.subpage-equipment-icon-text {
+						margin: 0;
+						font-size: 12px;
+					}
+				}
+			}
+
+			.subpage-rooms-carousel {
+				width: 100%;
+				border-radius: 25px;
+				overflow: hidden;
+
+				.carousel-indicators {
+					button {
+						height: 1px;
+					}
+				}
+			}
+		}
+	}
+	//----------------------------------------------------------------------------------
+
+	.subpage-main-info {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin-top: 4em;
+
+		.info-picture {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				height: 90%;
+			}
+		}
+
+		.info-text {
+			text-align: center;
+			margin: 1em;
+
+			p {
+				font-size: 16px;
+			}
+		}
+
+		.btn-gallery {
+			display: none;
+		}
+
+		.btn-gallery-media {
+			display: block;
+			width: 50%;
+			left: 100%;
+			margin-top: 2em;
+			text-decoration: none;
+		}
+		a {
+			text-decoration: none;
+			font-size: 14px;
+			width: 100%;
+			color: black;
+			padding: 1em;
+		}
+	}
+	//----------------------------------------------------------------------------------
+
+	.subpage-gallery {
+		.subpage-gallery-img {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
+
+//MEDIA MIN 992px ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@media (min-width: 992px) {
+	nav {
+		position: relative;
+		height: 200px;
+	}
+	//----------------------------------------------------------------------------------
+	.navbar-nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		width: 100%;
+		top: 80%;
+		left: 50%;
+		transform: translate(-50%);
+		background-color: #fff;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		z-index: 100;
+		height: 50px;
+
+		.nav-link {
+			padding: 0.5em;
+			margin: 1em;
+		}
+	}
+
+	.scroll-nav {
+		position: fixed;
+		top: 0;
+		border-top: none;
+	}
+
+	.logo {
+		width: 17%;
+		padding: 1em;
+		margin-bottom: 4em;
+	}
+	//----------------------------------------------------------------------------------
+
+	.header {
+		background-image: url('../img/agro-big.jpg');
+	}
+
+	.header-text-h1 {
+		margin: 0.5em;
+		font-size: 33px;
+	}
+	.header-text-p {
+		font-size: 20px;
+	}
+	//----------------------------------------------------------------------------------
+
+	.main {
+		.section-heading {
+			font-size: 1.8em;
+		}
+		.aboutus {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.aboutus-text {
+			width: 50%;
+		}
+	}
+	//----------------------------------------------------------------------------------
+
+	.hero-text {
+		font-size: 18px;
+	}
+	//----------------------------------------------------------------------------------
+
+	.offers {
+		.section-heading {
+			font-size: 1.8rem;
+		}
+		.offer {
+			.offers-box {
+				p {
+					font-size: 17px;
+				}
+			}
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+	.contact {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin: 2em;
+
+		.contact__text {
+			p {
+				font-size: 20px;
+			}
+		}
+	}
+
+	//---------------------------------------------------------------------------------
+
+	.addition {
+		.section-heading {
+			font-size: 1.8em;
+		}
+	}
+
+	//---------------------------------------------------------------------------------
+
+	.subpage-main-picture {
+		height: 40vh;
+
+		.main-text {
+			h2 {
+				font-size: 28px;
+			}
+		}
+	}
+
+	.subpage-room-main {
+		margin: 10em;
+
+		margin-top: 0;
+		margin-bottom: 1em;
+
+		.subpage-room {
+			margin-top: 5em;
+
+			.subpage-rooms {
+				.subpage-rooms-text {
+					h2 {
+						font-size: 35px;
+					}
+
+					.text-main {
+						font-size: 14px;
+					}
+
+					.text-info-price {
+						font-size: 22px;
+					}
+				}
+			}
+		}
+	}
+	//---------------------------------------------------------------------------------
+
+	.subpage-main-info {
+		.info-picture {
+			img {
+				height: 100%;
+			}
+		}
+
+		.info-text {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				font-size: 20px;
+			}
+		}
+	}
+
+	.gallery-boxes {
+		margin: 5em;
+	}
+}
+
+//MEDIA MIN 1200px ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@media (min-width: 1200px) {
+	.navbar-nav {
+		font-size: 15px;
+	}
+
+	//----------------------------------------------------------------------------------
+	.header-text-h1 {
+		font-size: 40px;
+	}
+	.header-text-p {
+		font-size: 25px;
+	}
+
+	//----------------------------------------------------------------------------------
+	.aboutus-text {
+		width: 50%;
+
+		p {
+			font-size: 15px;
+		}
+	}
+
+	//----------------------------------------------------------------------------------
+	.offers {
+		.section-text {
+			font-size: 18px;
+		}
+
+		.section-line {
+			width: 60%;
+		}
+
+		.offer {
+			.offers-box {
+				img {
+					width: 80%;
+				}
+			}
+		}
+	}
+	//----------------------------------------------------------------------------------
+	.addition {
+		.addition-main {
+			.text-addition {
+				h3 {
+					font-size: 15px;
+				}
+
+				p {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
+	.reviews {
+		.reviews-box-main {
+			.reviews-box {
+				.reviews-box-text {
+					.reviews-box-star {
+						font-size: 18px;
+					}
+
+					h3 {
+						font-size: 20px;
+					}
+					p {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+	}
+	//----------------------------------------------------------------------------------
+
+	.subpage-main-picture {
+		height: 50vh;
+
+		.main-text {
+			h2 {
+				font-size: 35px;
+			}
+		}
+	}
+
+	.subpage-room-main {
+		margin: 20em;
+		margin-top: 0;
+		margin-bottom: 2em;
+
+		.subpage-room {
+			margin-top: 5em;
+
+			.subpage-rooms {
+				.subpage-rooms-text {
+					h2 {
+						font-size: 50px;
+					}
+
+					.text-main {
+						font-size: 16px;
+					}
+
+					.text-info-price {
+						font-size: 25px;
+					}
+				}
+			}
+		}
+	}
+	//----------------------------------------------------------------------------------
+
+	.subpage-gallery {
+		margin: 5em;
+		.subpage-gallery-img {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.popup-image {
+		img {
+			width: 900px;
+		}
+	}
+
+	.gallery-box-main {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
